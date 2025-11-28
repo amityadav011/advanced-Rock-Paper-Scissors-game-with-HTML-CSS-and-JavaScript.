@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors - Advanced</title>
+    <link rel="stylesheet" href="project2.css">
+</head>
+<body>
+    <div class="bg-animation"></div>
+    
+    <button class="btn btn-secondary leaderboard-btn" onclick="game.toggleLeaderboard()">🏆 Leaderboard</button>
+
+    <div class="container">
+        <h1>🪨📄✂️ RPS. made by Amityadav</h1>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <span class="stat-value" id="userScore">0</span>
+                <span class="stat-label">Player</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value" id="computerScore">0</span>
+                <span class="stat-label">Computer</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value" id="ties">0</span>
+                <span class="stat-label">Ties</span>
+            </div>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="turn-info">Turns: <span id="turnCount">0</span>/10</div>
+
+        <div class="game-area">
+            <button class="choice-btn rock" data-choice="rock">🪨</button>
+            <button class="choice-btn paper" data-choice="paper">📄</button>
+            <button class="choice-btn scissors" data-choice="scissors">✂️</button>
+        </div>
+
+        <div class="result-area">
+            <div class="result-message" id="resultMessage"></div>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-primary" onclick="game.resetGame()">🔄 New Game</button>
+            <button class="btn btn-secondary" onclick="game.saveScore()">💾 Save Score</button>
+        </div>
+    </div>
+
+    <!-- Leaderboard Modal -->
+    <div id="leaderboardModal" class="modal">
+        <div class="modal-content">
+            <h2>🏆 Global Leaderboard</h2>
+            <table class="leaderboard-table" id="leaderboardTable">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Score</th>
+                        <th>Win Rate</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div class="modal-controls">
+                <input type="text" id="playerName" placeholder="Your Name">
+                <button class="btn btn-primary" onclick="game.submitScore()">Submit</button>
+            </div>
+            <button class="btn btn-secondary" onclick="game.toggleLeaderboard()">Close</button>
+        </div>
+    </div>
+
+    <div class="particles" id="particles"></div>
+    <h3>Made by Amityadav</h3>
+
+    <script src="project2.js"></script>
+</body>
+</html>
